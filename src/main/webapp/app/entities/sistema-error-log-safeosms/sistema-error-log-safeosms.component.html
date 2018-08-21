@@ -1,0 +1,110 @@
+<div>
+    <h2>
+        <span jhiTranslate="safeosmsv2App.sistemaErrorLog.home.title">Sistema Error Logs</span>
+        <button class="btn btn-primary float-right jh-create-entity create-sistema-error-log-safeosms" [routerLink]="['/', { outlets: { popup: ['sistema-error-log-safeosms-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down"  jhiTranslate="safeosmsv2App.sistemaErrorLog.home.createLabel">
+            Create new Sistema Error Log
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'safeosmsv2App.sistemaErrorLog.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="sistemaErrorLogs">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="uuidorigen"><span jhiTranslate="safeosmsv2App.sistemaErrorLog.uuidorigen">Uuidorigen</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="errorLogText"><span jhiTranslate="safeosmsv2App.sistemaErrorLog.errorLogText">Error Log Text</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="entidadid"><span jhiTranslate="safeosmsv2App.sistemaErrorLog.entidadid">Entidadid</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="personasid"><span jhiTranslate="safeosmsv2App.sistemaErrorLog.personasid">Personasid</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="contratosid"><span jhiTranslate="safeosmsv2App.sistemaErrorLog.contratosid">Contratosid</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="recibosid"><span jhiTranslate="safeosmsv2App.sistemaErrorLog.recibosid">Recibosid</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="iplocal"><span jhiTranslate="safeosmsv2App.sistemaErrorLog.iplocal">Iplocal</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="ipproxy"><span jhiTranslate="safeosmsv2App.sistemaErrorLog.ipproxy">Ipproxy</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="ippublic"><span jhiTranslate="safeosmsv2App.sistemaErrorLog.ippublic">Ippublic</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="usuariosid"><span jhiTranslate="safeosmsv2App.sistemaErrorLog.usuariosid">Usuariosid</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="tiempo"><span jhiTranslate="safeosmsv2App.sistemaErrorLog.tiempo">Tiempo</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="estatus"><span jhiTranslate="safeosmsv2App.sistemaErrorLog.estatus">Estatus</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="errorTiposidId"><span jhiTranslate="safeosmsv2App.sistemaErrorLog.errorTiposid">Error Tiposid</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let sistemaErrorLog of sistemaErrorLogs ;trackBy: trackId">
+                <td><a [routerLink]="['../sistema-error-log-safeosms', sistemaErrorLog.id ]">{{sistemaErrorLog.id}}</a></td>
+                <td>{{sistemaErrorLog.uuidorigen}}</td>
+                <td>
+                    <a *ngIf="sistemaErrorLog.errorLogText" (click)="openFile(sistemaErrorLog.errorLogTextContentType, sistemaErrorLog.errorLogText)" jhiTranslate="entity.action.open">open</a>
+                    <span *ngIf="sistemaErrorLog.errorLogText">{{sistemaErrorLog.errorLogTextContentType}}, {{byteSize(sistemaErrorLog.errorLogText)}}</span>
+                </td>
+                <td>{{sistemaErrorLog.entidadid}}</td>
+                <td>{{sistemaErrorLog.personasid}}</td>
+                <td>{{sistemaErrorLog.contratosid}}</td>
+                <td>{{sistemaErrorLog.recibosid}}</td>
+                <td>{{sistemaErrorLog.iplocal}}</td>
+                <td>{{sistemaErrorLog.ipproxy}}</td>
+                <td>{{sistemaErrorLog.ippublic}}</td>
+                <td>{{sistemaErrorLog.usuariosid}}</td>
+                <td>{{sistemaErrorLog.tiempo}}</td>
+                <td>{{sistemaErrorLog.estatus}}</td>
+                <td>
+                    <div *ngIf="sistemaErrorLog.errorTiposidId">
+                        <a [routerLink]="['../sistema-error-tipos-safeosms', sistemaErrorLog.errorTiposidId  ]" >{{sistemaErrorLog.errorTiposidId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../sistema-error-log-safeosms', sistemaErrorLog.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'sistema-error-log-safeosms/'+ sistemaErrorLog.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'sistema-error-log-safeosms/'+ sistemaErrorLog.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="sistemaErrorLogs && sistemaErrorLogs.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

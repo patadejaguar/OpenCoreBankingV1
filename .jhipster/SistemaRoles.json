@@ -1,0 +1,31 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "rolesid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "tipoEnSistemaid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "estatus",
+            "javadoc": "Estado Activo/Inactivo 1/0",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "max"
+            ],
+            "fieldValidateRulesMax": 9
+        }
+    ],
+    "changelogDate": "20180821203323",
+    "javadoc": "Reglas generales.\nMaximo en nombres de catalogos 80\nMaximo en tipos desconocidos 80\nMaximo en mails 80\nBoleanos como enteros 0/1\nMaximo en alias de catalogo 30",
+    "entityTableName": "sistema_roles",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "safeosms"
+}

@@ -1,0 +1,30 @@
+
+<div *ngIf="sistemaProductosTipos">
+    <h2><span jhiTranslate="safeosmsv2App.sistemaProductosTipos.detail.title">Sistema Productos Tipos</span> {{sistemaProductosTipos.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="safeosmsv2App.sistemaProductosTipos.lenguajeID">Lenguaje ID</span></dt>
+        <dd>
+            <span>{{sistemaProductosTipos.lenguajeID}}</span>
+        </dd>
+        <dt><span jhiTranslate="safeosmsv2App.sistemaProductosTipos.lenguajeVal">Lenguaje Val</span></dt>
+        <dd>
+            <span>{{sistemaProductosTipos.lenguajeVal}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'sistema-productos-tipos-safeosms/'+ sistemaProductosTipos.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

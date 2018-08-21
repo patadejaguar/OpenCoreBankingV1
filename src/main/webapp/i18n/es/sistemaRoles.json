@@ -1,0 +1,28 @@
+
+{
+    "safeosmsv2App": {
+        "sistemaRoles" : {
+            "home": {
+                "title": "Sistema Roles",
+                "createLabel": "Crear nuevo Sistema Roles",
+                "createOrEditLabel": "Crear o editar Sistema Roles",
+                "search": "Search for Sistema Roles"
+            },
+            "created": "Un nuevo Sistema Roles ha sido creado con el identificador {{ param }}",
+            "updated": "Un Sistema Roles ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Sistema Roles ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Sistema Roles {{ id }}?"
+            },
+            "detail": {
+                "title": "Sistema Roles"
+            },
+            "rolesid": "Rolesid",
+            "tipoEnSistemaid": "Tipo En Sistemaid",
+            "estatus": "Estatus",
+            "help": {
+                "estatus": "Estado Activo/Inactivo 1/0"
+            }
+        }
+    }
+}

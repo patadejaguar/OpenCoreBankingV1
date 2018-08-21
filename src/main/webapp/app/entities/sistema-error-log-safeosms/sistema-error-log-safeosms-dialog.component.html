@@ -1,0 +1,189 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="mySistemaErrorLogLabel" jhiTranslate="safeosmsv2App.sistemaErrorLog.home.createOrEditLabel">Create or edit a Sistema Error Log</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!sistemaErrorLog.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="sistemaErrorLog.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safeosmsv2App.sistemaErrorLog.uuidorigen" for="field_uuidorigen" [ngbTooltip]="'safeosmsv2App.sistemaErrorLog.help.uuidorigen' | translate">Uuidorigen</label>
+            <input type="text" class="form-control" name="uuidorigen" id="field_uuidorigen"
+                [(ngModel)]="sistemaErrorLog.uuidorigen" maxlength="30"/>
+            <div [hidden]="!(editForm.controls.uuidorigen?.dirty && editForm.controls.uuidorigen?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.uuidorigen?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 30 }">
+                   This field cannot be longer than 30 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safeosmsv2App.sistemaErrorLog.errorLogText" for="field_errorLogText">Error Log Text</label>
+            <div>
+                <div *ngIf="sistemaErrorLog.errorLogText" class="form-text text-danger clearfix">
+                    <a class="pull-left" (click)="openFile(sistemaErrorLog.errorLogTextContentType, sistemaErrorLog.errorLogText)" jhiTranslate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{sistemaErrorLog.errorLogTextContentType}}, {{byteSize(sistemaErrorLog.errorLogText)}}</span>
+                    <button type="button" (click)="sistemaErrorLog.errorLogText=null;sistemaErrorLog.errorLogTextContentType=null;"
+                            class="btn btn-secondary btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" id="file_errorLogText" (change)="setFileData($event, sistemaErrorLog, 'errorLogText', false)" jhiTranslate="entity.action.addblob"/>
+            </div>
+            <input type="hidden" class="form-control" name="errorLogText" id="field_errorLogText"
+                [(ngModel)]="sistemaErrorLog.errorLogText" />
+            <input type="hidden" class="form-control" name="errorLogTextContentType" id="field_errorLogTextContentType"
+                [(ngModel)]="sistemaErrorLog.errorLogTextContentType" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safeosmsv2App.sistemaErrorLog.entidadid" for="field_entidadid">Entidadid</label>
+            <input type="number" class="form-control" name="entidadid" id="field_entidadid"
+                [(ngModel)]="sistemaErrorLog.entidadid" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safeosmsv2App.sistemaErrorLog.personasid" for="field_personasid">Personasid</label>
+            <input type="number" class="form-control" name="personasid" id="field_personasid"
+                [(ngModel)]="sistemaErrorLog.personasid" max="999999999"/>
+            <div [hidden]="!(editForm.controls.personasid?.dirty && editForm.controls.personasid?.invalid)">
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.personasid?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 999999999 }">
+                    This field cannot be more than 999999999.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.personasid?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safeosmsv2App.sistemaErrorLog.contratosid" for="field_contratosid">Contratosid</label>
+            <input type="number" class="form-control" name="contratosid" id="field_contratosid"
+                [(ngModel)]="sistemaErrorLog.contratosid" max="999999999"/>
+            <div [hidden]="!(editForm.controls.contratosid?.dirty && editForm.controls.contratosid?.invalid)">
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.contratosid?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 999999999 }">
+                    This field cannot be more than 999999999.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.contratosid?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safeosmsv2App.sistemaErrorLog.recibosid" for="field_recibosid">Recibosid</label>
+            <input type="number" class="form-control" name="recibosid" id="field_recibosid"
+                [(ngModel)]="sistemaErrorLog.recibosid" max="999999999"/>
+            <div [hidden]="!(editForm.controls.recibosid?.dirty && editForm.controls.recibosid?.invalid)">
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.recibosid?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 999999999 }">
+                    This field cannot be more than 999999999.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.recibosid?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safeosmsv2App.sistemaErrorLog.iplocal" for="field_iplocal">Iplocal</label>
+            <input type="text" class="form-control" name="iplocal" id="field_iplocal"
+                [(ngModel)]="sistemaErrorLog.iplocal" maxlength="20"/>
+            <div [hidden]="!(editForm.controls.iplocal?.dirty && editForm.controls.iplocal?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.iplocal?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+                   This field cannot be longer than 20 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safeosmsv2App.sistemaErrorLog.ipproxy" for="field_ipproxy">Ipproxy</label>
+            <input type="text" class="form-control" name="ipproxy" id="field_ipproxy"
+                [(ngModel)]="sistemaErrorLog.ipproxy" maxlength="20"/>
+            <div [hidden]="!(editForm.controls.ipproxy?.dirty && editForm.controls.ipproxy?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.ipproxy?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+                   This field cannot be longer than 20 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safeosmsv2App.sistemaErrorLog.ippublic" for="field_ippublic">Ippublic</label>
+            <input type="text" class="form-control" name="ippublic" id="field_ippublic"
+                [(ngModel)]="sistemaErrorLog.ippublic" maxlength="20"/>
+            <div [hidden]="!(editForm.controls.ippublic?.dirty && editForm.controls.ippublic?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.ippublic?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+                   This field cannot be longer than 20 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safeosmsv2App.sistemaErrorLog.usuariosid" for="field_usuariosid" [ngbTooltip]="'safeosmsv2App.sistemaErrorLog.help.usuariosid' | translate">Usuariosid</label>
+            <input type="number" class="form-control" name="usuariosid" id="field_usuariosid"
+                [(ngModel)]="sistemaErrorLog.usuariosid" max="9999"/>
+            <div [hidden]="!(editForm.controls.usuariosid?.dirty && editForm.controls.usuariosid?.invalid)">
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.usuariosid?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 9999 }">
+                    This field cannot be more than 9999.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.usuariosid?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safeosmsv2App.sistemaErrorLog.tiempo" for="field_tiempo" [ngbTooltip]="'safeosmsv2App.sistemaErrorLog.help.tiempo' | translate">Tiempo</label>
+            <input type="number" class="form-control" name="tiempo" id="field_tiempo"
+                [(ngModel)]="sistemaErrorLog.tiempo" max="999999999"/>
+            <div [hidden]="!(editForm.controls.tiempo?.dirty && editForm.controls.tiempo?.invalid)">
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.tiempo?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 999999999 }">
+                    This field cannot be more than 999999999.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.tiempo?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safeosmsv2App.sistemaErrorLog.estatus" for="field_estatus" [ngbTooltip]="'safeosmsv2App.sistemaErrorLog.help.estatus' | translate">Estatus</label>
+            <input type="number" class="form-control" name="estatus" id="field_estatus"
+                [(ngModel)]="sistemaErrorLog.estatus" max="9"/>
+            <div [hidden]="!(editForm.controls.estatus?.dirty && editForm.controls.estatus?.invalid)">
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.estatus?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 9 }">
+                    This field cannot be more than 9.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.estatus?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safeosmsv2App.sistemaErrorLog.errorTiposid" for="field_errorTiposid">Error Tiposid</label>
+            <select class="form-control" id="field_errorTiposid" name="errorTiposid" [(ngModel)]="sistemaErrorLog.errorTiposidId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="sistemaErrorTiposOption.id" *ngFor="let sistemaErrorTiposOption of sistemaerrortipos; trackBy: trackSistemaErrorTiposById">{{sistemaErrorTiposOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -4,8 +4,8 @@
 # This configuration will be overridden by the Spring profile you use,
 # for example application-dev.yml if you use the "dev" profile.
 #
-# More information on profiles: https://www.jhipster.tech/profiles/
-# More information on configuration properties: https://www.jhipster.tech/common-application-properties/
+# More information on profiles: http://www.jhipster.tech/profiles/
+# More information on configuration properties: http://www.jhipster.tech/common-application-properties/
 # ===================================================================
 
 # ===================================================================
@@ -16,7 +16,7 @@
 
 eureka:
     client:
-        enabled: true
+        enabled: false
         healthcheck:
             enabled: true
         fetch-registry: true
@@ -24,30 +24,26 @@ eureka:
         instance-info-replication-interval-seconds: 10
         registry-fetch-interval-seconds: 10
     instance:
-        appname: OpenCoreBankingV1
-        instanceId: OpenCoreBankingV1:${spring.application.instance-id:${random.value}}
+        appname: safeosmsv2
+        instanceId: safeosmsv2:${spring.application.instance-id:${random.value}}
         lease-renewal-interval-in-seconds: 5
         lease-expiration-duration-in-seconds: 10
-        status-page-url-path: ${management.endpoints.web.base-path}/info
-        health-check-url-path: ${management.endpoints.web.base-path}/health
+        status-page-url-path: ${management.context-path}/info
+        health-check-url-path: ${management.context-path}/health
         metadata-map:
             zone: primary # This is needed for the load balancer
             profile: ${spring.profiles.active}
-            version: ${info.project.version:}
-            git-version: ${git.commit.id.describe:}
-            git-commit: ${git.commit.id.abbrev:}
-            git-branch: ${git.branch:}
+            version: ${info.project.version}
 ribbon:
     eureka:
-        enabled: true
-feign:
-    hystrix:
-        enabled: true
-#    client:
-#        config:
-#            default:
-#                connectTimeout: 5000
-#                readTimeout: 5000
+        enabled: false
+# See http://cloud.spring.io/spring-cloud-netflix/spring-cloud-netflix.html
+zuul: # those values must be configured depending on the application specific needs
+    host:
+        max-total-connections: 1000
+        max-per-route-connections: 100
+    semaphore:
+        max-semaphores: 500
 
 # See https://github.com/Netflix/Hystrix/wiki/Configuration
 hystrix:
@@ -55,33 +51,24 @@ hystrix:
         default:
             execution:
                 isolation:
-                    strategy: SEMAPHORE
-# See https://github.com/spring-cloud/spring-cloud-netflix/issues/1330
-#                    thread:
-#                        timeoutInMilliseconds: 10000
-    shareSecurityContext: true
+                    thread:
+                        timeoutInMilliseconds: 10000
 
 management:
-    endpoints:
-        web:
-            base-path: /management
-            exposure:
-                include: ["configprops", "env", "health", "info", "threaddump"]
-    endpoint:
-        health:
-            show-details: when_authorized
+    security:
+        roles: ADMIN
+    context-path: /management
     info:
         git:
             mode: full
     health:
         mail:
             enabled: false # When using the MailService, configure an SMTP server and set this to true
-    metrics:
-        enabled: false # http://micrometer.io/ is disabled by default, as we use http://metrics.dropwizard.io/ instead
-
 spring:
     application:
-        name: OpenCoreBankingV1
+        name: safeosmsv2
+    jackson:
+        serialization.write_dates_as_timestamps: false
     jpa:
         open-in-view: false
         hibernate:
@@ -95,23 +82,24 @@ spring:
         favicon:
             enabled: false
     thymeleaf:
-        mode: HTML
+        mode: XHTML
+security:
+    basic:
+        enabled: false
 
 server:
-    servlet:
-        session:
-            cookie:
-                http-only: true
+    session:
+        cookie:
+            http-only: true
 
-# Properties to be exposed on the /info management endpoint
 info:
-    # Comma separated list of profiles that will trigger the ribbon to show
-    display-ribbon-on-profiles: "dev"
+    project:
+        version: #project.version#
 
 # ===================================================================
 # JHipster specific properties
 #
-# Full reference is available at: https://www.jhipster.tech/common-application-properties/
+# Full reference is available at: http://www.jhipster.tech/common-application-properties/
 # ===================================================================
 
 jhipster:
@@ -128,11 +116,11 @@ jhipster:
         #allow-credentials: true
         #max-age: 1800
     mail:
-        from: OpenCoreBankingV1@localhost
+        from: safeosmsv2@localhost
     swagger:
         default-include-pattern: /api/.*
-        title: OpenCoreBankingV1 API
-        description: OpenCoreBankingV1 API documentation
+        title: safeosmsv2 API
+        description: safeosmsv2 API documentation
         version: 0.0.1
         terms-of-service-url:
         contact-name:
@@ -140,6 +128,8 @@ jhipster:
         contact-email:
         license:
         license-url:
+    ribbon:
+        display-on-active-profiles: dev
 
 # ===================================================================
 # Application specific properties
@@ -147,7 +137,7 @@ jhipster:
 # to have type-safe configuration, like in the JHipsterProperties above
 #
 # More documentation is available at:
-# https://www.jhipster.tech/common-application-properties/
+# http://www.jhipster.tech/common-application-properties/
 # ===================================================================
 
-# application:
+application:

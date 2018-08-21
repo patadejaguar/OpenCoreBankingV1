@@ -5,6 +5,18 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180821203323_added_entity_SistemaRoles.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180821203324_added_entity_SistemaConfiguracion.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180821203325_added_entity_SistemaCatalogoInterno.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180821203326_added_entity_SistemaNivelRiesgo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180821203327_added_entity_SistemaMsjLargo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180821203328_added_entity_SistemaErrorTipos.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180821203329_added_entity_SistemaComCanales.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180821203330_added_entity_SistemaErrorLog.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180821203331_added_entity_SistemaLenguaje.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180821203332_added_entity_SistemaProductosTipos.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20180821203330_added_entity_constraints_SistemaErrorLog.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180821203328_added_entity_constraints_SistemaErrorTipos.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

@@ -1,0 +1,29 @@
+
+{
+    "safeosmsv2App": {
+        "sistemaCatalogoInterno" : {
+            "home": {
+                "title": "Sistema Catalogo Internos",
+                "createLabel": "Crear nuevo Sistema Catalogo Interno",
+                "createOrEditLabel": "Crear o editar Sistema Catalogo Interno",
+                "search": "Search for Sistema Catalogo Interno"
+            },
+            "created": "Un nuevo Sistema Catalogo Interno ha sido creado con el identificador {{ param }}",
+            "updated": "Un Sistema Catalogo Interno ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Sistema Catalogo Interno ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Sistema Catalogo Interno {{ id }}?"
+            },
+            "detail": {
+                "title": "Sistema Catalogo Interno"
+            },
+            "catalogoInternoTbl": "Catalogo Interno Tbl",
+            "catalogoInternoNom": "Catalogo Interno Nom",
+            "catalogoInternoVal": "Catalogo Interno Val",
+            "estatus": "Estatus",
+            "help": {
+                "estatus": "Estado Activo/Inactivo 1/0"
+            }
+        }
+    }
+}

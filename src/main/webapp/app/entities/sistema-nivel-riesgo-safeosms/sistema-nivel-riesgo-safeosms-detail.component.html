@@ -1,0 +1,34 @@
+
+<div *ngIf="sistemaNivelRiesgo">
+    <h2><span jhiTranslate="safeosmsv2App.sistemaNivelRiesgo.detail.title">Sistema Nivel Riesgo</span> {{sistemaNivelRiesgo.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="safeosmsv2App.sistemaNivelRiesgo.nivelRiesgoNom">Nivel Riesgo Nom</span></dt>
+        <dd>
+            <span>{{sistemaNivelRiesgo.nivelRiesgoNom}}</span>
+        </dd>
+        <dt><span jhiTranslate="safeosmsv2App.sistemaNivelRiesgo.nivelRiesgoAlias">Nivel Riesgo Alias</span></dt>
+        <dd>
+            <span>{{sistemaNivelRiesgo.nivelRiesgoAlias}}</span>
+        </dd>
+        <dt><span jhiTranslate="safeosmsv2App.sistemaNivelRiesgo.estatus" [ngbTooltip]="'safeosmsv2App.sistemaNivelRiesgo.help.estatus' | translate">Estatus</span></dt>
+        <dd>
+            <span>{{sistemaNivelRiesgo.estatus}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'sistema-nivel-riesgo-safeosms/'+ sistemaNivelRiesgo.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

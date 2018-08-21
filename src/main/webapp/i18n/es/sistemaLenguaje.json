@@ -1,0 +1,24 @@
+
+{
+    "safeosmsv2App": {
+        "sistemaLenguaje" : {
+            "home": {
+                "title": "Sistema Lenguajes",
+                "createLabel": "Crear nuevo Sistema Lenguaje",
+                "createOrEditLabel": "Crear o editar Sistema Lenguaje",
+                "search": "Search for Sistema Lenguaje"
+            },
+            "created": "Un nuevo Sistema Lenguaje ha sido creado con el identificador {{ param }}",
+            "updated": "Un Sistema Lenguaje ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Sistema Lenguaje ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Sistema Lenguaje {{ id }}?"
+            },
+            "detail": {
+                "title": "Sistema Lenguaje"
+            },
+            "lenguajeID": "Lenguaje ID",
+            "lenguajeVal": "Lenguaje Val"
+        }
+    }
+}

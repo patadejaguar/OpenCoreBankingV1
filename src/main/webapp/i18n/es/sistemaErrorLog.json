@@ -1,0 +1,41 @@
+
+{
+    "safeosmsv2App": {
+        "sistemaErrorLog" : {
+            "home": {
+                "title": "Sistema Error Logs",
+                "createLabel": "Crear nuevo Sistema Error Log",
+                "createOrEditLabel": "Crear o editar Sistema Error Log",
+                "search": "Search for Sistema Error Log"
+            },
+            "created": "Un nuevo Sistema Error Log ha sido creado con el identificador {{ param }}",
+            "updated": "Un Sistema Error Log ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Sistema Error Log ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Sistema Error Log {{ id }}?"
+            },
+            "detail": {
+                "title": "Sistema Error Log"
+            },
+            "uuidorigen": "Uuidorigen",
+            "errorLogText": "Error Log Text",
+            "entidadid": "Entidadid",
+            "personasid": "Personasid",
+            "contratosid": "Contratosid",
+            "recibosid": "Recibosid",
+            "iplocal": "Iplocal",
+            "ipproxy": "Ipproxy",
+            "ippublic": "Ippublic",
+            "usuariosid": "Usuariosid",
+            "tiempo": "Tiempo",
+            "estatus": "Estatus",
+            "errorTiposid": "Error Tiposid",
+            "help": {
+                "uuidorigen": "hash : Usuario de Origen",
+                "usuariosid": "Usuario identificado de origen",
+                "tiempo": "Tiempo de Registro",
+                "estatus": "Estado Activo/Inactivo 1/0"
+            }
+        }
+    }
+}

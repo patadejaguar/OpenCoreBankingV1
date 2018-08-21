@@ -1,0 +1,122 @@
+//#title: safe-osms-database-sistema
+/**
+* Reglas generales.
+* Maximo en nombres de catalogos 80
+* Maximo en tipos desconocidos 80
+* Maximo en mails 80
+* Boleanos como enteros 0/1
+* Maximo en alias de catalogo 30
+*/
+
+entity SistemaRoles {
+	roles_id Integer,
+    tipoEnSistema_id Integer,
+
+	/** Estado Activo/Inactivo 1/0 */
+    estatus Integer max(9)
+}
+
+entity SistemaConfiguracion {
+	configuracionNom String maxlength(80),
+	configuracionTipo String maxlength(15), /*INT,CHAR,REAL*/
+	configuracionVal String maxlength(100),
+	/** Estado Activo/Inactivo 1/0 */
+    estatus Integer max(9)
+}
+
+
+entity SistemaCatalogoInterno {
+	catalogoInternoTbl  String maxlength(80),
+	catalogoInternoNom  String maxlength(80),
+	catalogoInternoVal  String maxlength(100),
+	/** Estado Activo/Inactivo 1/0 */
+    estatus Integer max(9)
+}
+entity SistemaNivelRiesgo {
+	nivelRiesgoNom String maxlength(80),
+	nivelRiesgoAlias String maxlength(30),
+	/** Estado Activo/Inactivo 1/0 */
+    estatus Integer max(9)
+}
+
+
+entity SistemaMsjLargo {
+	msjLargoNom String  maxlength(80),
+	msjLargoTexto String maxlength(150),
+	/** Estado Activo/Inactivo 1/0 */
+    estatus Integer max(9)
+}
+
+entity SistemaErrorTipos {
+
+	errorTiposNom String maxlength(80),
+	errorTiposAlias String maxlength(30),
+	/** Estado Activo/Inactivo 1/0 */
+    estatus Integer max(9)
+}
+/**
+* canales de comunicacion
+* mail sms wsms=wathsapp sms
+*/
+entity SistemaComCanales {
+	comCanalesNom String maxlength(10),
+	comCanalesAlias String maxlength(30),
+	/** Estado Activo/Inactivo 1/0 */
+    estatus Integer max(9)
+}
+entity SistemaErrorLog {
+
+	/** hash : Usuario de Origen */
+	uuid_origen String maxlength(30),
+
+	errorLogText Blob,
+
+	entidad_id Integer,
+	personas_id Long max(999999999),
+	contratos_id Long max(999999999),
+	recibos_id Long max(999999999),
+
+	ip_local String maxlength(20),
+	ip_proxy String maxlength(20),
+	ip_public String maxlength(20),
+    /** Usuario identificado de origen */
+    usuarios_id Integer max(9999),
+    /** Tiempo de Registro */
+    tiempo Long max(999999999),
+	/** Estado Activo/Inactivo 1/0 */
+    estatus Integer max(9)
+}
+entity SistemaLenguaje {
+	lenguajeID String maxlength(30),
+	lenguajeVal String maxlength(80)
+}
+
+/**
+* Tipos de Productos en el Sistema :
+* 1 = Propios de la persona
+* 4 = Propios de Credito
+* 8 = Productos de Captacion
+*/
+entity SistemaProductosTipos {
+	lenguajeID String maxlength(30),
+	lenguajeVal String maxlength(80)
+}
+
+relationship ManyToOne {
+	SistemaErrorLog{errorTipos_id} to SistemaErrorTipos
+}
+
+/** 
+ * Set pagination options.
+ */
+paginate *  with pagination
+
+dto * with mapstruct
+/**
+ * Set service options to all except few.
+ */
+service all with serviceImpl
+/** 
+ * Set an angular suffix.
+ */
+angularSuffix * with safeosms

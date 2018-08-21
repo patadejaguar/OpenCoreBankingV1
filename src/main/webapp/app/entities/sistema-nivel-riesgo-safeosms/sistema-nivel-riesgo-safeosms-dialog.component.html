@@ -1,0 +1,62 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="mySistemaNivelRiesgoLabel" jhiTranslate="safeosmsv2App.sistemaNivelRiesgo.home.createOrEditLabel">Create or edit a Sistema Nivel Riesgo</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!sistemaNivelRiesgo.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="sistemaNivelRiesgo.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safeosmsv2App.sistemaNivelRiesgo.nivelRiesgoNom" for="field_nivelRiesgoNom">Nivel Riesgo Nom</label>
+            <input type="text" class="form-control" name="nivelRiesgoNom" id="field_nivelRiesgoNom"
+                [(ngModel)]="sistemaNivelRiesgo.nivelRiesgoNom" maxlength="80"/>
+            <div [hidden]="!(editForm.controls.nivelRiesgoNom?.dirty && editForm.controls.nivelRiesgoNom?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.nivelRiesgoNom?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 80 }">
+                   This field cannot be longer than 80 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safeosmsv2App.sistemaNivelRiesgo.nivelRiesgoAlias" for="field_nivelRiesgoAlias">Nivel Riesgo Alias</label>
+            <input type="text" class="form-control" name="nivelRiesgoAlias" id="field_nivelRiesgoAlias"
+                [(ngModel)]="sistemaNivelRiesgo.nivelRiesgoAlias" maxlength="30"/>
+            <div [hidden]="!(editForm.controls.nivelRiesgoAlias?.dirty && editForm.controls.nivelRiesgoAlias?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.nivelRiesgoAlias?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 30 }">
+                   This field cannot be longer than 30 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safeosmsv2App.sistemaNivelRiesgo.estatus" for="field_estatus" [ngbTooltip]="'safeosmsv2App.sistemaNivelRiesgo.help.estatus' | translate">Estatus</label>
+            <input type="number" class="form-control" name="estatus" id="field_estatus"
+                [(ngModel)]="sistemaNivelRiesgo.estatus" max="9"/>
+            <div [hidden]="!(editForm.controls.estatus?.dirty && editForm.controls.estatus?.invalid)">
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.estatus?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 9 }">
+                    This field cannot be more than 9.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.estatus?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

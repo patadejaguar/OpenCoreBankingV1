@@ -1,0 +1,79 @@
+
+<div *ngIf="sistemaErrorLog">
+    <h2><span jhiTranslate="safeosmsv2App.sistemaErrorLog.detail.title">Sistema Error Log</span> {{sistemaErrorLog.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="safeosmsv2App.sistemaErrorLog.uuidorigen" [ngbTooltip]="'safeosmsv2App.sistemaErrorLog.help.uuidorigen' | translate">Uuidorigen</span></dt>
+        <dd>
+            <span>{{sistemaErrorLog.uuidorigen}}</span>
+        </dd>
+        <dt><span jhiTranslate="safeosmsv2App.sistemaErrorLog.errorLogText">Error Log Text</span></dt>
+        <dd>
+            <div *ngIf="sistemaErrorLog.errorLogText">
+                <a (click)="openFile(sistemaErrorLog.errorLogTextContentType, sistemaErrorLog.errorLogText)" jhiTranslate="entity.action.open">open</a>
+                {{sistemaErrorLog.errorLogTextContentType}}, {{byteSize(sistemaErrorLog.errorLogText)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="safeosmsv2App.sistemaErrorLog.entidadid">Entidadid</span></dt>
+        <dd>
+            <span>{{sistemaErrorLog.entidadid}}</span>
+        </dd>
+        <dt><span jhiTranslate="safeosmsv2App.sistemaErrorLog.personasid">Personasid</span></dt>
+        <dd>
+            <span>{{sistemaErrorLog.personasid}}</span>
+        </dd>
+        <dt><span jhiTranslate="safeosmsv2App.sistemaErrorLog.contratosid">Contratosid</span></dt>
+        <dd>
+            <span>{{sistemaErrorLog.contratosid}}</span>
+        </dd>
+        <dt><span jhiTranslate="safeosmsv2App.sistemaErrorLog.recibosid">Recibosid</span></dt>
+        <dd>
+            <span>{{sistemaErrorLog.recibosid}}</span>
+        </dd>
+        <dt><span jhiTranslate="safeosmsv2App.sistemaErrorLog.iplocal">Iplocal</span></dt>
+        <dd>
+            <span>{{sistemaErrorLog.iplocal}}</span>
+        </dd>
+        <dt><span jhiTranslate="safeosmsv2App.sistemaErrorLog.ipproxy">Ipproxy</span></dt>
+        <dd>
+            <span>{{sistemaErrorLog.ipproxy}}</span>
+        </dd>
+        <dt><span jhiTranslate="safeosmsv2App.sistemaErrorLog.ippublic">Ippublic</span></dt>
+        <dd>
+            <span>{{sistemaErrorLog.ippublic}}</span>
+        </dd>
+        <dt><span jhiTranslate="safeosmsv2App.sistemaErrorLog.usuariosid" [ngbTooltip]="'safeosmsv2App.sistemaErrorLog.help.usuariosid' | translate">Usuariosid</span></dt>
+        <dd>
+            <span>{{sistemaErrorLog.usuariosid}}</span>
+        </dd>
+        <dt><span jhiTranslate="safeosmsv2App.sistemaErrorLog.tiempo" [ngbTooltip]="'safeosmsv2App.sistemaErrorLog.help.tiempo' | translate">Tiempo</span></dt>
+        <dd>
+            <span>{{sistemaErrorLog.tiempo}}</span>
+        </dd>
+        <dt><span jhiTranslate="safeosmsv2App.sistemaErrorLog.estatus" [ngbTooltip]="'safeosmsv2App.sistemaErrorLog.help.estatus' | translate">Estatus</span></dt>
+        <dd>
+            <span>{{sistemaErrorLog.estatus}}</span>
+        </dd>
+        <dt><span jhiTranslate="safeosmsv2App.sistemaErrorLog.errorTiposid">Error Tiposid</span></dt>
+        <dd>
+            <div *ngIf="sistemaErrorLog.errorTiposidId">
+                <a [routerLink]="['/sistema-error-tipos-safeosms', sistemaErrorLog.errorTiposidId]">{{sistemaErrorLog.errorTiposidId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'sistema-error-log-safeosms/'+ sistemaErrorLog.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

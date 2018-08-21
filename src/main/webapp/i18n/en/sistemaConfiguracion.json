@@ -1,0 +1,30 @@
+
+{
+    "safeosmsv2App": {
+        "sistemaConfiguracion" : {
+            "home": {
+                "title": "Sistema Configuracions",
+                "createLabel": "Create a new Sistema Configuracion",
+                "createOrEditLabel": "Create or edit a Sistema Configuracion",
+                "search": "Search for Sistema Configuracion"
+            },
+            "created": "A new Sistema Configuracion is created with identifier {{ param }}",
+            "updated": "A Sistema Configuracion is updated with identifier {{ param }}",
+            "deleted": "A Sistema Configuracion is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sistema Configuracion {{ id }}?"
+            },
+            "detail": {
+                "title": "Sistema Configuracion"
+            },
+            "configuracionNom": "Configuracion Nom",
+            "configuracionTipo": "Configuracion Tipo",
+            "configuracionVal": "Configuracion Val",
+            "estatus": "Estatus",
+            "help": {
+                "configuracionVal": "INT,CHAR,REAL",
+                "estatus": "Estado Activo/Inactivo 1/0"
+            }
+        }
+    }
+}

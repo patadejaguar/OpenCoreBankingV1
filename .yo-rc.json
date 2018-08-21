@@ -1,37 +1,58 @@
 {
   "generator-jhipster": {
-    "applicationType": "microservice",
-    "gitHubOrganization": "patadejaguar",
-    "baseName": "OpenCoreBankingV1",
-    "packageName": "com.sipakal.ocbanking",
-    "packageFolder": "com/sipakal/ocbanking",
-    "serverPort": 8085,
-    "serviceDiscoveryType": "eureka",
+    "promptValues": {
+      "packageName": "com.sipakal.safeosms",
+      "nativeLanguage": "es"
+    },
+    "jhipsterVersion": "4.14.4",
+    "baseName": "safeosmsv2",
+    "packageName": "com.sipakal.safeosms",
+    "packageFolder": "com/sipakal/safeosms",
+    "serverPort": "8088",
     "authenticationType": "jwt",
-    "uaaBaseName": "../uaa",
     "cacheProvider": "hazelcast",
     "enableHibernateCache": true,
     "websocket": "spring-websocket",
     "databaseType": "sql",
     "devDatabaseType": "h2Disk",
     "prodDatabaseType": "postgresql",
-    "searchEngine": false,
-    "enableSwaggerCodegen": "true",
+    "searchEngine": "elasticsearch",
     "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
     "buildTool": "maven",
-    "useSass": false,
+    "enableSocialSignIn": false,
+    "enableSwaggerCodegen": true,
+    "jwtSecretKey": "ae9e3ff8344ae2a39d8c79ee30b39947ae686262",
+    "clientFramework": "angularX",
+    "useSass": true,
     "clientPackageManager": "yarn",
-    "testFrameworks": [
-      "gatling"
+    "applicationType": "gateway",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "otherModules": [
+      {
+        "name": "generator-jhipster-swagger-cli",
+        "version": "3.0.1"
+      },
+      {
+        "name": "generator-jhipster-swagger-api-first",
+        "version": "1.0.1"
+      },
+      {
+        "name": "generator-jhipster-multitenancy",
+        "version": "1.0.1"
+      },
+      {
+        "name": "generator-jhipster-material",
+        "version": "0.0.0"
+      }
     ],
     "enableTranslation": true,
     "nativeLanguage": "es",
     "languages": [
+      "es",
       "en",
-      "pt-pt",
-      "es"
-    ],
-    "clientFramework": "angularX",
-    "jhiPrefix": "jhi"
+      "pt-pt"
+    ]
   }
 }

@@ -1,0 +1,28 @@
+
+{
+    "safeosmsv2App": {
+        "sistemaNivelRiesgo" : {
+            "home": {
+                "title": "Sistema Nivel Riesgos",
+                "createLabel": "Criar um(a) novo(a) Sistema Nivel Riesgo",
+                "createOrEditLabel": "Criar ou editar um(a) Sistema Nivel Riesgo",
+                "search": "Search for Sistema Nivel Riesgo"
+            },
+            "created": "A new Sistema Nivel Riesgo is created with identifier {{ param }}",
+            "updated": "A Sistema Nivel Riesgo is updated with identifier {{ param }}",
+            "deleted": "A Sistema Nivel Riesgo is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Tem a certeza que pretende eliminar o(a) Sistema Nivel Riesgo {{ id }}?"
+            },
+            "detail": {
+                "title": "Sistema Nivel Riesgo"
+            },
+            "nivelRiesgoNom": "Nivel Riesgo Nom",
+            "nivelRiesgoAlias": "Nivel Riesgo Alias",
+            "estatus": "Estatus",
+            "help": {
+                "estatus": "Estado Activo/Inactivo 1/0"
+            }
+        }
+    }
+}

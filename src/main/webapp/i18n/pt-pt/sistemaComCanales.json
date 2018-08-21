@@ -1,0 +1,28 @@
+
+{
+    "safeosmsv2App": {
+        "sistemaComCanales" : {
+            "home": {
+                "title": "Sistema Com Canales",
+                "createLabel": "Criar um(a) novo(a) Sistema Com Canales",
+                "createOrEditLabel": "Criar ou editar um(a) Sistema Com Canales",
+                "search": "Search for Sistema Com Canales"
+            },
+            "created": "A new Sistema Com Canales is created with identifier {{ param }}",
+            "updated": "A Sistema Com Canales is updated with identifier {{ param }}",
+            "deleted": "A Sistema Com Canales is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Tem a certeza que pretende eliminar o(a) Sistema Com Canales {{ id }}?"
+            },
+            "detail": {
+                "title": "Sistema Com Canales"
+            },
+            "comCanalesNom": "Com Canales Nom",
+            "comCanalesAlias": "Com Canales Alias",
+            "estatus": "Estatus",
+            "help": {
+                "estatus": "Estado Activo/Inactivo 1/0"
+            }
+        }
+    }
+}

@@ -1,0 +1,28 @@
+
+{
+    "safeosmsv2App": {
+        "sistemaMsjLargo" : {
+            "home": {
+                "title": "Sistema Msj Largos",
+                "createLabel": "Crear nuevo Sistema Msj Largo",
+                "createOrEditLabel": "Crear o editar Sistema Msj Largo",
+                "search": "Search for Sistema Msj Largo"
+            },
+            "created": "Un nuevo Sistema Msj Largo ha sido creado con el identificador {{ param }}",
+            "updated": "Un Sistema Msj Largo ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Sistema Msj Largo ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Sistema Msj Largo {{ id }}?"
+            },
+            "detail": {
+                "title": "Sistema Msj Largo"
+            },
+            "msjLargoNom": "Msj Largo Nom",
+            "msjLargoTexto": "Msj Largo Texto",
+            "estatus": "Estatus",
+            "help": {
+                "estatus": "Estado Activo/Inactivo 1/0"
+            }
+        }
+    }
+}

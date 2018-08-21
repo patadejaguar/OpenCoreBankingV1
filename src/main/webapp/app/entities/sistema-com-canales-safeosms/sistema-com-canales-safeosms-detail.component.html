@@ -1,0 +1,34 @@
+
+<div *ngIf="sistemaComCanales">
+    <h2><span jhiTranslate="safeosmsv2App.sistemaComCanales.detail.title">Sistema Com Canales</span> {{sistemaComCanales.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="safeosmsv2App.sistemaComCanales.comCanalesNom">Com Canales Nom</span></dt>
+        <dd>
+            <span>{{sistemaComCanales.comCanalesNom}}</span>
+        </dd>
+        <dt><span jhiTranslate="safeosmsv2App.sistemaComCanales.comCanalesAlias">Com Canales Alias</span></dt>
+        <dd>
+            <span>{{sistemaComCanales.comCanalesAlias}}</span>
+        </dd>
+        <dt><span jhiTranslate="safeosmsv2App.sistemaComCanales.estatus" [ngbTooltip]="'safeosmsv2App.sistemaComCanales.help.estatus' | translate">Estatus</span></dt>
+        <dd>
+            <span>{{sistemaComCanales.estatus}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'sistema-com-canales-safeosms/'+ sistemaComCanales.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,38 @@
+
+<div *ngIf="sistemaConfiguracion">
+    <h2><span jhiTranslate="safeosmsv2App.sistemaConfiguracion.detail.title">Sistema Configuracion</span> {{sistemaConfiguracion.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="safeosmsv2App.sistemaConfiguracion.configuracionNom">Configuracion Nom</span></dt>
+        <dd>
+            <span>{{sistemaConfiguracion.configuracionNom}}</span>
+        </dd>
+        <dt><span jhiTranslate="safeosmsv2App.sistemaConfiguracion.configuracionTipo">Configuracion Tipo</span></dt>
+        <dd>
+            <span>{{sistemaConfiguracion.configuracionTipo}}</span>
+        </dd>
+        <dt><span jhiTranslate="safeosmsv2App.sistemaConfiguracion.configuracionVal" [ngbTooltip]="'safeosmsv2App.sistemaConfiguracion.help.configuracionVal' | translate">Configuracion Val</span></dt>
+        <dd>
+            <span>{{sistemaConfiguracion.configuracionVal}}</span>
+        </dd>
+        <dt><span jhiTranslate="safeosmsv2App.sistemaConfiguracion.estatus" [ngbTooltip]="'safeosmsv2App.sistemaConfiguracion.help.estatus' | translate">Estatus</span></dt>
+        <dd>
+            <span>{{sistemaConfiguracion.estatus}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'sistema-configuracion-safeosms/'+ sistemaConfiguracion.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,28 @@
+
+{
+    "safeosmsv2App": {
+        "sistemaErrorTipos" : {
+            "home": {
+                "title": "Sistema Error Tipos",
+                "createLabel": "Crear nuevo Sistema Error Tipos",
+                "createOrEditLabel": "Crear o editar Sistema Error Tipos",
+                "search": "Search for Sistema Error Tipos"
+            },
+            "created": "Un nuevo Sistema Error Tipos ha sido creado con el identificador {{ param }}",
+            "updated": "Un Sistema Error Tipos ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Sistema Error Tipos ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Sistema Error Tipos {{ id }}?"
+            },
+            "detail": {
+                "title": "Sistema Error Tipos"
+            },
+            "errorTiposNom": "Error Tipos Nom",
+            "errorTiposAlias": "Error Tipos Alias",
+            "estatus": "Estatus",
+            "help": {
+                "estatus": "Estado Activo/Inactivo 1/0"
+            }
+        }
+    }
+}

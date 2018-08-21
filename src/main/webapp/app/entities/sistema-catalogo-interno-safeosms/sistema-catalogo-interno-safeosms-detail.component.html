@@ -1,0 +1,38 @@
+
+<div *ngIf="sistemaCatalogoInterno">
+    <h2><span jhiTranslate="safeosmsv2App.sistemaCatalogoInterno.detail.title">Sistema Catalogo Interno</span> {{sistemaCatalogoInterno.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="safeosmsv2App.sistemaCatalogoInterno.catalogoInternoTbl">Catalogo Interno Tbl</span></dt>
+        <dd>
+            <span>{{sistemaCatalogoInterno.catalogoInternoTbl}}</span>
+        </dd>
+        <dt><span jhiTranslate="safeosmsv2App.sistemaCatalogoInterno.catalogoInternoNom">Catalogo Interno Nom</span></dt>
+        <dd>
+            <span>{{sistemaCatalogoInterno.catalogoInternoNom}}</span>
+        </dd>
+        <dt><span jhiTranslate="safeosmsv2App.sistemaCatalogoInterno.catalogoInternoVal">Catalogo Interno Val</span></dt>
+        <dd>
+            <span>{{sistemaCatalogoInterno.catalogoInternoVal}}</span>
+        </dd>
+        <dt><span jhiTranslate="safeosmsv2App.sistemaCatalogoInterno.estatus" [ngbTooltip]="'safeosmsv2App.sistemaCatalogoInterno.help.estatus' | translate">Estatus</span></dt>
+        <dd>
+            <span>{{sistemaCatalogoInterno.estatus}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'sistema-catalogo-interno-safeosms/'+ sistemaCatalogoInterno.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

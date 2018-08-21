@@ -1,0 +1,24 @@
+
+{
+    "safeosmsv2App": {
+        "sistemaProductosTipos" : {
+            "home": {
+                "title": "Sistema Productos Tipos",
+                "createLabel": "Crear nuevo Sistema Productos Tipos",
+                "createOrEditLabel": "Crear o editar Sistema Productos Tipos",
+                "search": "Search for Sistema Productos Tipos"
+            },
+            "created": "Un nuevo Sistema Productos Tipos ha sido creado con el identificador {{ param }}",
+            "updated": "Un Sistema Productos Tipos ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Sistema Productos Tipos ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Sistema Productos Tipos {{ id }}?"
+            },
+            "detail": {
+                "title": "Sistema Productos Tipos"
+            },
+            "lenguajeID": "Lenguaje ID",
+            "lenguajeVal": "Lenguaje Val"
+        }
+    }
+}

@@ -1,0 +1,83 @@
+<div>
+    <h2>
+        <span jhiTranslate="safeosmsv2App.sistemaNivelRiesgo.home.title">Sistema Nivel Riesgos</span>
+        <button class="btn btn-primary float-right jh-create-entity create-sistema-nivel-riesgo-safeosms" [routerLink]="['/', { outlets: { popup: ['sistema-nivel-riesgo-safeosms-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down"  jhiTranslate="safeosmsv2App.sistemaNivelRiesgo.home.createLabel">
+            Create new Sistema Nivel Riesgo
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'safeosmsv2App.sistemaNivelRiesgo.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="sistemaNivelRiesgos">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="nivelRiesgoNom"><span jhiTranslate="safeosmsv2App.sistemaNivelRiesgo.nivelRiesgoNom">Nivel Riesgo Nom</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="nivelRiesgoAlias"><span jhiTranslate="safeosmsv2App.sistemaNivelRiesgo.nivelRiesgoAlias">Nivel Riesgo Alias</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="estatus"><span jhiTranslate="safeosmsv2App.sistemaNivelRiesgo.estatus">Estatus</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let sistemaNivelRiesgo of sistemaNivelRiesgos ;trackBy: trackId">
+                <td><a [routerLink]="['../sistema-nivel-riesgo-safeosms', sistemaNivelRiesgo.id ]">{{sistemaNivelRiesgo.id}}</a></td>
+                <td>{{sistemaNivelRiesgo.nivelRiesgoNom}}</td>
+                <td>{{sistemaNivelRiesgo.nivelRiesgoAlias}}</td>
+                <td>{{sistemaNivelRiesgo.estatus}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../sistema-nivel-riesgo-safeosms', sistemaNivelRiesgo.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'sistema-nivel-riesgo-safeosms/'+ sistemaNivelRiesgo.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'sistema-nivel-riesgo-safeosms/'+ sistemaNivelRiesgo.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="sistemaNivelRiesgos && sistemaNivelRiesgos.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>
